@@ -80,6 +80,10 @@ public class Weapon : MonoBehaviour
         string objectName = "Fire_" + sprite.name;
         string resourcePath = "Prefab/Player/" + objectName;
 
+        if(sprite.name.Equals("HardCandy") && t > 0.5f)
+            t = 0.5f;
+
+
         bullet = Resources.Load<GameObject>(resourcePath);
         Instantiate(bullet, transform.position, Quaternion.identity);
 

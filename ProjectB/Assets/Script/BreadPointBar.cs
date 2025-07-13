@@ -36,6 +36,12 @@ public class BreadPointBar : MonoBehaviour
         //    CostBreadPoint(5);
         //}
     }
+    public void RefreshBreadPoint(int playerBreadPoint)
+    {
+        currentBreadPoint = playerBreadPoint;
+        breadPointSlider.value = currentBreadPoint;
+        breadPointText.text = currentBreadPoint.ToString() + " / " + maxBreadPoint.ToString();
+    }
 
     public void AddBreadPoint(int BreadPoint)
     {

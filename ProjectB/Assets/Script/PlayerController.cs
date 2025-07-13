@@ -30,6 +30,8 @@ public class PlayerController : MonoBehaviour
     public Image hpFillImage;
     public int currentHP;
 
+    Vector2 beforePos;
+
     [SerializeField]Rigidbody2D rigidbody;
 
     public bool isDie { get; private set; } = false;
@@ -196,61 +198,24 @@ public class PlayerController : MonoBehaviour
     {
         if(_point - point < 0) return;
 
-        Vector3 playerWorldPos = transform.position;
-        float distanceToPlayer = Vector2.Distance(center, playerWorldPos);
+        beforePos.x = Mathf.Round(center.x);
+        beforePos.y = Mathf.Round(center.y);
 
-        Vector3 targetPosition = center;
-
-        // 거리가 1보다 크면, 주변에서 가장 가까운 블록 찾기
-        if(distanceToPlayer > 1f)
-        {
-            Vector3Int playerCell = tilemap.WorldToCell(playerWorldPos);
-
-            Vector3Int[] directions = new Vector3Int[]
-            {
-                new Vector3Int (0, 0, 0), // 정가운대
-                new Vector3Int(1, 0, 0),   // 오른쪽
-                new Vector3Int(-1, 0, 0),  // 왼쪽
-                new Vector3Int(0, 1, 0),   // 위
-                new Vector3Int(0, -1, 0),  // 아래
-            };
-
-            float minDistance = float.MaxValue;
-            Vector3 bestPos = center; // fallback
-            bool foundValid = false;
-
-            foreach(var dir in directions)
-            {
-                Vector3Int checkCell = playerCell + dir;
-                Vector3 checkWorldPos = tilemap.GetCellCenterWorld(checkCell);
-
-                print("checkPos: " + checkWorldPos);
-
-                float dist = Vector2.Distance(center, checkWorldPos);
-                // 거리 기준 1보다 큰 경우만 유효
-                if(dist > 1f && dist < minDistance)
-                {
-                    minDistance = dist;
-                    bestPos = checkWorldPos;
-                    foundValid = true;
-                }
-            }
-
-            // 설치 가능한 위치가 없으면 리턴
-            if(!foundValid)
-            {
-                Debug.Log("플레이어 주변에 설치 가능한 유효한 타일이 없습니다.");
-                return;
-            }
-
-            targetPosition = bestPos;
-        }
-       
+        print("설치된 블록의 위치1: " + beforePos);
 
         // 최종 위치에 벽 설치
+        Collider2D hit = Physics2D.OverlapPoint(beforePos, LayerMask.GetMask("Wall"));
+        if(hit != null)
+        {
+            Debug.Log("이미 이 위치에 벽이 설치되어 있습니다.");
+            print("설치된 블록의 위치: " + beforePos);
+            return;
+        }
+
         _point -= point;
-        Instantiate(targetWall, targetPosition, Quaternion.identity);
+        Instantiate(targetWall, center, Quaternion.identity);
         breadpointbar.CostBreadPoint(point);
+        breadpointbar.RefreshBreadPoint(_point);
     }
 
     // 포인트 획득
@@ -258,6 +223,7 @@ public class PlayerController : MonoBehaviour
     {
         _point = _point >= 50 ? Mathf.Max(MaxPoint) : _point + point;
         breadpointbar.AddBreadPoint(point);
+        breadpointbar.RefreshBreadPoint(_point);
     }
 
     public void TakeDamage(int damage)

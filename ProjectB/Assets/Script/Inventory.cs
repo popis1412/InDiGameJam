@@ -41,12 +41,12 @@ public class Inventory : MonoBehaviour
                 keyNum = 2; UpdateIcon(); 
         }
         else if(Keyboard.current.digit3Key.wasPressedThisFrame) {
-            //if(LevelManager.Instance.level >= 8)
+            if(LevelManager.Instance.level >= 8)
                 keyNum = 3; UpdateIcon();
         }
         else if(Keyboard.current.digit4Key.wasPressedThisFrame) {
-            keyNum = 4; UpdateIcon();
-            //if(LevelManager.Instance.level >= 11)
+            if(LevelManager.Instance.level >= 11)
+                keyNum = 4; UpdateIcon();
 
         }
         else if(Keyboard.current.digit5Key.wasPressedThisFrame) {

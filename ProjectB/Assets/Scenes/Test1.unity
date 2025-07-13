@@ -673,7 +673,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ff392407b889f9146b62228ea2c9fc31, type: 3}
   - {fileID: 21300000, guid: 645c6a0b3dc78cc45bf0b7d6154d1d6f, type: 3}
   - {fileID: 21300000, guid: 80357ab54e51cfc4abf7fb7cc35fea51, type: 3}
-  - {fileID: 21300000, guid: 8c6582468a71f3e4d84f346633d09477, type: 3}
+  - {fileID: 21300000, guid: 807a401f55ecb4d44812b89fa47365b0, type: 3}
   - {fileID: 21300000, guid: 5a06a0ab08a645b4ea90eaddf8f7d1de, type: 3}
   Icon: {fileID: 223408946}
 --- !u!1 &305280978
@@ -7412,7 +7412,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &408482186
 BoxCollider2D:
@@ -7474,7 +7474,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5541472607913530223, guid: 35810f659ea341e4e88dc08a368234a0, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5541472607913530223, guid: 35810f659ea341e4e88dc08a368234a0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7916,7 +7916,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9fd8dbda20d32469e1c532221a2930, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 6453722970161289967}
+  target: {fileID: 0}
   posOffset: {x: 0, y: 0, z: 0}
   smooth: 0.3
 --- !u!1 &1186562351
@@ -8138,7 +8138,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1338174463
 BoxCollider2D:
@@ -9192,7 +9192,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2232235208588869340, guid: 57b66e316f7687e498e738a411133cf6, type: 3}
       propertyPath: _point
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2232235208588869340, guid: 57b66e316f7687e498e738a411133cf6, type: 3}
       propertyPath: tilemap
@@ -9260,11 +9260,6 @@ PrefabInstance:
       objectReference: {fileID: 305280978}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57b66e316f7687e498e738a411133cf6, type: 3}
---- !u!4 &6453722970161289967 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3802655495241152501, guid: 57b66e316f7687e498e738a411133cf6, type: 3}
-  m_PrefabInstance: {fileID: 6453722970161289966}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6453722970161289973 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2232235208588869340, guid: 57b66e316f7687e498e738a411133cf6, type: 3}

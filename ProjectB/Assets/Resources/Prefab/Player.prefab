@@ -179,7 +179,7 @@ MonoBehaviour:
   bulletSpawnPos: {fileID: 6786041787340765407}
   weapon: {fileID: 0}
   player: {fileID: 0}
-  fireDelay: 1
+  delay: 1
 --- !u!1 &1971250354226629244
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,7 +517,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tilemap: {fileID: 0}
   wallPrefab: []
-  _point: 100
+  _point: 10
   hpFillImage: {fileID: 3540780553799857743}
   currentHP: 10
   rigidbody: {fileID: 0}
